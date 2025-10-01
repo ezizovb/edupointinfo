@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPoinInfo</title>
+
+    <style>
+       
+/* =============== Стили для галереи =============== */
+
+:root {
+    --main-bg-color: #000000;
+    --card-bg-color: #0b0e14;
+    --text-color: #333;
+    --primary-color: #007bff;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: var(--main-bg-color);
+    padding: 20px;
+   
+    color: var(--text-color);
+}
+
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.logo{
+    width: 50px;
+    height: 50px;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.block_link{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.link{
+    color: #458d1c;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.linkImage{
+    width: 7%;
+    margin-right: 10px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; /* Расстояние между элементами сетки */
+    max-width: 1200px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 0 10px;
+}
+
+.gallery-item {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Обрезает лишнее, сохраняя красивые углы */
+    cursor: pointer; /* Показывает, что элемент кликабельный */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Легкий эффект поднятия при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    
+    width: 100%;
+    height: 200px; 
+    display: block;
+    object-fit: cover;
+}
+
+.caption {
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #abaaf8;
+    min-height: 50px; /* Чтобы высота карточек была одинаковой, если описания короткие */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =============== Стили для модального окна (Увеличение) =============== */
+
+/* Модальное окно (фон) - скрыто по умолчанию */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксировано относительно окна просмотра */
+    z-index: 1000; /* Поверх всех элементов */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Включить прокрутку, если нужно */
+    background-color: rgba(0, 0, 0, 0.9); /* Черный фон с прозрачностью */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Содержимое модального окна (само изображение) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%; /* Ширина на больших экранах */
+    max-width: 900px; /* Максимальная ширина */
+    max-height: 90vh; /* Максимальная высота (90% от высоты экрана) */
+    object-fit: contain; /* Изображение масштабируется, чтобы поместиться без обрезки */
+}
+
+/* Кнопка закрытия */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* * Стили для мобильных устройств: 
+ * Убираем отступы и делаем картинку меньше для маленьких экранов.
+ */
+@media only screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .gallery {
+        gap: 10px;
+    }
+    .gallery-item img {
+        height: 150px; /* Немного меньше высота на мобильных */
+    }
+    .modal-content {
+        width: 95%; 
+    }
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    
+</div>
+    <header>
+        <img class="logo" src="./imgs/mainLogo.png" alt="">
+    <h1>EduPoint</h1>
+    </header>
+    
+    <p ><strong>Система:</strong>  Управления Тестированием (School Testing System) </p>
+
+<p><strong>Ключевая цель</strong>
+Создание полнофункциональной, надежной и безопасной платформы для цифровизации процесса контроля знаний в учебных заведениях.</p>
+
+<p style="margin-bottom: 20px;"><strong>Результат:</strong> Разработанное решение обеспечивает полный цикл управления тестами: от создания контента учителем до автоматизированной проверки и предоставления детальных отчетов ученикам и преподавателям.</p>
+<div class="block_link">
+<a class="link" href="https://github.com/ezizovb/scholl_tests"><img class="linkImage" src="./imgs/code.svg" alt="link">просмотреть код</a>
+
+</div>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <div class="gallery">
+        
+        <div class="gallery-item" onclick="openModal('./imgs/001.png')">
+            <img src="./imgs/001.png" alt="Описание для SEO">
+            <div class="caption">
+                1. Страница Входа: Начальная страница, предлагающая пользователю авторизоваться или зарегистрировать новый аккаунт.
+            </div>
+        </div>
+        <div class="gallery-item" onclick="openModal('./imgs/002.png')">
+            <img src="./imgs/002.png" alt="Описание 2">
+            <div class="caption">
+                2. Страница Регистрации: Простой и понятный интерфейс для регистрации новых пользователей.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/003.png')">
+            <img src="./imgs/003.png" alt="Описание 3">
+            <div class="caption">
+                3. Панель Учителя: Главная административная страница для управления учебным процессом.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/004.png')">
+            <img src="./imgs/004.png" alt="Описание 3">
+            <div class="caption">
+                4. Просмотр Успеваемости Учеников: Учитель может просмотреть успеваемость; доступна детализация информации и возможность возврата теста для повторной сдачи.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/005.png')">
+            <img src="./imgs/005.png" alt="Описание 3">
+            <div class="caption">
+                5. Подробный Отчет по результатам тестирования.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/006.png')">
+            <img src="./imgs/006.png" alt="Описание 3">
+            <div class="caption">
+                6. Создание Теста: Настройка названия, описания и определение целевой группы.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/007.png')">
+            <img src="./imgs/007.png" alt="Описание 3">
+            <div class="caption">
+                7. Наполнение Теста: Добавление вопросов, мультимедийного контента (фото, формулы), вариантов ответов и указание правильного решения.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/008.png')">
+            <img src="./imgs/008.png" alt="Описание 3">
+            <div class="caption">
+                8. Создание Групп: Для повышения безопасности и исключения случайного удаления связанных тестов кнопка удаления группы отключена.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/009.png')">
+            <img src="./imgs/009.png" alt="Описание 3">
+            <div class="caption">
+                9. Ограничение Повторной Сдачи: Тесты становятся недоступны ученику после первого прохождения; Учитель может предоставить второй шанс на сдачу.
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/0010.png')">
+            <img src="./imgs/0010.png" alt="Описание 3">
+            <div class="caption">
+                10. Панель Ученика: Доступ к результатам (как в п. 4) и просмотр подробной информации по своим ответам (как в п. 5).
+            </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal('./imgs/0011.png')">
+            <img src="./imgs/0011.png" alt="Описание 3">
+            <div class="caption">
+                11. Процесс Тестирования: На прохождение теста отводится 20 минут (время настраивается).
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // Получаем модальное окно и элементы изображения
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("img01");
+
+        // Функция открытия модального окна (вызывается при клике на .gallery-item)
+        function openModal(imageSrc) {
+            modal.style.display = "flex"; // Показываем окно
+            modalImg.src = imageSrc;      // Устанавливаем путь к увеличенному изображению
+        }
+
+        // Функция закрытия модального окна
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        
+        // Закрытие модального окна по клику на фон (необязательно, но удобно)
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
